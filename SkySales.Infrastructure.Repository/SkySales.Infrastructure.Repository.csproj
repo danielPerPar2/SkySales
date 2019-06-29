@@ -41,7 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDelete.cs" />
+    <Compile Include="ICreate.cs" />
+    <Compile Include="IRead.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="IUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentRepository.cs" />
   </ItemGroup>
