@@ -1,0 +1,9 @@
+2019-06-29 19:59:55,634 [1] ERROR SkySales.Web.Services.Global [(null)] - Application error
+2019-06-29 20:06:56,287 [1] ERROR SkySales.Web.Services.Global [(null)] - Application_Start
+2019-06-29 20:08:50,819 [1] INFO  SkySales.Web.Services.Global [(null)] - Application_Start
+2019-06-29 20:08:50,843 [1] ERROR SkySales.Web.Services.Global [(null)] - Application_Start
+2019-06-29 20:10:05,734 [1] INFO  SkySales.Web.Services.Global [(null)] - Application_Start
+2019-06-29 20:10:05,753 [1] ERROR SkySales.Web.Services.Global [(null)] - Application_Start
+2019-06-29 20:10:42,822 [1] INFO  SkySales.Web.Services.Global [(null)] - Application_Start
+2019-06-29 20:10:42,841 [1] DEBUG SkySales.Web.Services.Global [(null)] - Application_Start
+2019-06-29 20:10:42,842 [1] ERROR SkySales.Web.Services.Global [(null)] - Application_Start

@@ -9,10 +9,15 @@ namespace SkySales.Web.Services
 {
     public class Global : System.Web.HttpApplication
     {
-
+        private static readonly log4net.ILog log =
+            log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         protected void Application_Start(object sender, EventArgs e)
         {
             //lo primero que se ejecuta al arrancar la aplicación
+            log.Info("Application_Start");
+            log.Debug("Application_Start");
+            log.Error("Application_Start");
+            
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -36,6 +41,7 @@ namespace SkySales.Web.Services
         {
             //esto se ejecutará para cada exception que se lance en la aplicación
             //podríamos usarlo para tener el control de errores centralizado aquí
+            log.Error("Application_Error");
         }
 
         protected void Session_End(object sender, EventArgs e)
