@@ -8,6 +8,6 @@ namespace SkySales.Infrastructure.Repository
 {
     public interface IUpdate<T>
     {
-        T Update(int id);
+        T Update(T t);
     }
 }
