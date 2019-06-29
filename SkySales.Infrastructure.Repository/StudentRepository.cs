@@ -26,6 +26,11 @@ namespace SkySales.Infrastructure.Repository
             }         
         }
 
+        public Student Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Student> GetAll()
         {
             //poner cadena de conexión en el Web.config
@@ -48,6 +53,16 @@ namespace SkySales.Infrastructure.Repository
 
                 return studentList;
             }
+        }
+
+        public Student GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Student Update(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
