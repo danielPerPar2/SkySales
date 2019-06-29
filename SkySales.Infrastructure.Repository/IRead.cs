@@ -8,7 +8,7 @@ namespace SkySales.Infrastructure.Repository
 {
     public interface IRead<T>
     {
-        T GetById(T t);
+        T GetById(int id);
         List<T> GetAll();
     }
 }
