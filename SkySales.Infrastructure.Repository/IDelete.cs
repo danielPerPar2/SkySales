@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SkySales.Infrastructure.Repository
 {
-    public interface Delete<T>
+    public interface IDelete<T>
     {
         T Delete(int id);
     }

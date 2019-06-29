@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SkySales.Infrastructure.Repository
 {
-    public interface IRepository<T> : ICreate<T>, IRead<T>, IUpdate<T>, Delete<T>
+    public interface IRepository<T> : ICreate<T>, IRead<T>, IUpdate<T>, IDelete<T>
     {
        
     }
