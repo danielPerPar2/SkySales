@@ -30,7 +30,16 @@ namespace SkySales.Web.Services
 
     [DataContract]
     public class Student
-    {        
+    {
+        public Student() { }
+        public Student(int id, string name, string surname, int age)
+        {
+            StudentId = id;
+            Name = name;
+            Surname = surname;
+            Age = age;
+        }
+
         [DataMember]
         public int StudentId{ get; set; }
 
