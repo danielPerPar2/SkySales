@@ -8,9 +8,9 @@ using SkySales.Infrastructure.Repository;
 
 namespace SkySales.Business.Logic
 {
-    public class StudentLogic
+    public class StudentLogic : IBusinessLogic<Student>
     {
-        StudentRepository studentRepository = new StudentRepository();
+        IRepository<Student> studentRepository = new StudentRepository();
 
         public Student Add(Student student)
         {
