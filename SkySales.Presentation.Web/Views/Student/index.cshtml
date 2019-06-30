@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
     <h1>Student Manager</h1>
-    @Html.EditorFor(x => x.StudentID) <br /><br /> @Html.EditorFor(x => x.Name) <br /> <br /> @Html.EditorFor(x => x.Surname) <br /> <br /> @Html.EditorFor(x => x.Age) <br /> <br />
+   <span>Student ID</span> @Html.EditorFor(x => x.StudentID) <br /><br /><span>Name</span> @Html.EditorFor(x => x.Name) <br /> <br /><span>Surname</span> @Html.EditorFor(x => x.Surname) <br /> <br /><span>Age</span> @Html.EditorFor(x => x.Age) <br /> <br />
     <input type="submit" value="Add" name="Order" />
     <input type="submit" value="Update" name="Order" />
     <input type="submit" value="Delete" name="Order" />

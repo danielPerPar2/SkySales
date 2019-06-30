@@ -9,7 +9,7 @@ using System.Web.Configuration;
 
 namespace SkySales.Infrastructure.Repository
 {
-    class StudentRepository : IRepository<Student>
+   public class StudentRepository : IRepository<Student>
     {
         public Student Add(Student model)
         {
@@ -28,6 +28,7 @@ namespace SkySales.Infrastructure.Repository
                     command.ExecuteNonQuery();
                     //habria que buscar el user insertado y retornarlo
                 }
+              student=  GetById(model.StudentId);
             }
             return student;
         }
@@ -40,6 +41,7 @@ namespace SkySales.Infrastructure.Repository
             using (SqlConnection connection = new SqlConnection(@WebConfigurationManager.AppSettings["SQLConection"]))
             {
                 connection.Open();//lanza excepciones - en el try catch logariamos el student y la excepción
+                
                 using (SqlCommand command = new SqlCommand("DELETE FROM Student WHERE StudentID=@id", connection))
                 {
                     command.Parameters.AddWithValue("@id", id);
@@ -51,10 +53,7 @@ namespace SkySales.Infrastructure.Repository
             }
         }
 
-        public Student Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public List<Student> GetAll()
         {
@@ -70,7 +69,10 @@ namespace SkySales.Infrastructure.Repository
                         while(reader.Read())
                         {
                             var student = new Student();
+                            student.StudentId=Int32.Parse( reader["StudentID"].ToString());
                             student.Name = reader["Name"].ToString();
+                            student.Surname = reader["Surname"].ToString();
+                            student.Age = Int32.Parse(reader["Age"].ToString());
                             studentList.Add(student);
                         }
                     }                    
@@ -82,14 +84,6 @@ namespace SkySales.Infrastructure.Repository
 
         public Student GetById(int id)
         {
-<<<<<<< HEAD
-            throw new NotImplementedException();
-        }
-
-        public Student Update(int id)
-        {
-            throw new NotImplementedException();
-=======
             var student = new Student();
             using (SqlConnection connection = new SqlConnection(@WebConfigurationManager.AppSettings["SQLConection"]))
             {
@@ -115,13 +109,15 @@ namespace SkySales.Infrastructure.Repository
             }
         }
 
+     
+
         public Student Update(Student student)
         {
             Student newStudent;
             using (SqlConnection connection = new SqlConnection(@WebConfigurationManager.AppSettings["SQLConection"]))
             {
                 connection.Open();//lanza excepciones - en el try catch logariamos el student y la excepción
-                using (SqlCommand command = new SqlCommand("INSERT INTO Student (StudentID, Name, Surname, Age)VALUES(@id, @name, @surname, @age)", connection))
+                using (SqlCommand command = new SqlCommand("UPDATE Student SET  Name=@name, Surname=@surname, Age=@age WHERE StudentID=@id", connection))
                 {
                     command.Parameters.AddWithValue("@id",student.StudentId);
                     command.Parameters.AddWithValue("@name", student.Name);
@@ -136,7 +132,7 @@ namespace SkySales.Infrastructure.Repository
 
                return newStudent;
             }
->>>>>>> Issue#1
+
         }
     }
 }

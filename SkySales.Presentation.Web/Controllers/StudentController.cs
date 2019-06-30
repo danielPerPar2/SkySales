@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using SkySales.Presentation.Web.Models;
 
+
 namespace SkySales.Presentation.Web.Controllers
 {
     public class StudentController : Controller
@@ -19,32 +20,50 @@ namespace SkySales.Presentation.Web.Controllers
 
         public ActionResult Index(StudentModel model, string Operacion)
         {
-            ReferenciaWeb.Service1Client sc = new ReferenciaWeb.Service1Client();
-            if (Operacion == "Suma")
+            ServiceReference.StudentWebServiceClient sc = new ServiceReference.StudentWebServiceClient();
+            if (Operacion == "Add")
             {
-
-                model.result = sc.Suma(model.num1, model.num2);
+                SkySales.Presentation.Web.ServiceReference.Student student = new SkySales.Presentation.Web.ServiceReference.Student
+                {
+                    StudentId = model.StudentID,
+                    Name = model.Name,
+                    Surname = model.Surname,
+                    Age = model.Age
+                };
+                sc.Add(student);
 
             }
 
-            if (Operacion == "Resta")
+            if (Operacion == "Update")
             {
 
-                model.result = sc.Rest(model.num1, model.num2);
+                SkySales.Presentation.Web.ServiceReference.Student student = new SkySales.Presentation.Web.ServiceReference.Student
+                {
+                    StudentId = model.StudentID,
+                    Name = model.Name,
+                    Surname = model.Surname,
+                    Age = model.Age
+                };
+                sc.Update(student);
 
             }
 
-            if (Operacion == "Multiplicacion")
+            if (Operacion == "Delete")
             {
 
-                model.result = sc.Multiplicacion(model.num1, model.num2);
+               sc.Delete(model.StudentID);
 
             }
 
-            if (Operacion == "Division")
+            if (Operacion == "GetByID")
             {
 
-                model.result = sc.Divison(model.num1, model.num2);
+              SkySales.Presentation.Web.ServiceReference.Student student=  sc.GetById(model.StudentID);
+                
+            }
+
+            if (Operacion == "GetAll")
+            {
 
             }
 
