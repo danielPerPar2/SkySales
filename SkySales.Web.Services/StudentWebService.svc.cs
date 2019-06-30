@@ -18,12 +18,15 @@ namespace SkySales.Web.Services
     {
         //Business object del student
         //private IStudentBO studentBO = new StudentBO();
+
+        private IMapper<Student, StudentWS> mapper = new StudentMapper();
+
         public StudentWS Add(StudentWS student)
         {
             StudentLogic studentLogic = new StudentLogic();
-            Student studentCommonModels = StudentMapper.Map(student);           
+            Student studentCommonModels = mapper.Map(student);           
             Student insertedStudent = studentLogic.Add(studentCommonModels);
-            StudentWS studentWS = StudentMapper.Map(insertedStudent);   
+            StudentWS studentWS = mapper.Map(insertedStudent);   
             return studentWS;
         }
 
@@ -31,7 +34,7 @@ namespace SkySales.Web.Services
         {
             StudentLogic studentLogic = new StudentLogic();
             Student studentCommonModels = studentLogic.Delete(id);
-            StudentWS studentWS = StudentMapper.Map(studentCommonModels);         
+            StudentWS studentWS = mapper.Map(studentCommonModels);         
             return studentWS;
         }
 
@@ -39,7 +42,7 @@ namespace SkySales.Web.Services
         {
             StudentLogic studentLogic = new StudentLogic();         
             List<Student> studentsList = studentLogic.GetAll();
-            List<StudentWS> studentsWS = StudentMapper.Map(studentsList);
+            List<StudentWS> studentsWS = mapper.Map(studentsList);
             return studentsWS;
         }
 
@@ -47,16 +50,16 @@ namespace SkySales.Web.Services
         {
             StudentLogic studentLogic = new StudentLogic();                     
             Student student = studentLogic.GetById(id);
-            StudentWS studentWS = StudentMapper.Map(student);
+            StudentWS studentWS = mapper.Map(student);
             return studentWS;
         }
 
         public StudentWS Update(StudentWS student)
         {
             StudentLogic studentLogic = new StudentLogic();
-            Student studentToInsert = StudentMapper.Map(student);
+            Student studentToInsert = mapper.Map(student);
             Student insertedStudent = studentLogic.Update(studentToInsert);
-            StudentWS insertedStudentWS = StudentMapper.Map(insertedStudent);                
+            StudentWS insertedStudentWS = mapper.Map(insertedStudent);                
             return insertedStudentWS;
         }
     }

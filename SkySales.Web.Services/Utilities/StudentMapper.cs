@@ -6,9 +6,9 @@ using System.Web;
 
 namespace SkySales.Web.Services.Utilities
 {
-    public class StudentMapper
-    {
-        public static StudentWS Map(Student student)
+    public class StudentMapper : IMapper<Student, StudentWS>
+    {         
+        public StudentWS Map(Student student)
         {
             StudentWS studentWS = new StudentWS()
             {
@@ -22,7 +22,7 @@ namespace SkySales.Web.Services.Utilities
             
         }
 
-        public static List<StudentWS> Map(List<Student> students)
+        public List<StudentWS> Map(List<Student> students)
         {
             List<StudentWS> listStudentWS = new List<StudentWS>(students.Count);
             foreach(var student in students)
@@ -32,7 +32,7 @@ namespace SkySales.Web.Services.Utilities
             return listStudentWS;
         }
 
-        public static Student Map(StudentWS student)
+        public Student Map(StudentWS student)
         {
             Student studentCommonModels = new Student()
             {
@@ -45,7 +45,7 @@ namespace SkySales.Web.Services.Utilities
             return studentCommonModels;
         }
 
-        public static List<Student> Map(List<StudentWS> students)
+        public List<Student> Map(List<StudentWS> students)
         {
             List<Student> listStudent = new List<Student>(students.Count);
             foreach(var student in students)

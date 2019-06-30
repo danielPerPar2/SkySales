@@ -66,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentWebServiceTest.cs" />
     <Compile Include="StudentLogicTest.cs" />
+    <Compile Include="MapperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
