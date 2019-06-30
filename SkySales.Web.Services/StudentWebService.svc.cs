@@ -16,7 +16,7 @@ namespace SkySales.Web.Services
     {
         //Business object del student
         //private IStudentBO studentBO = new StudentBO();
-        public Student Add(Student student)
+        public StudentWS Add(StudentWS student)
         {
             StudentLogic studentLogic = new StudentLogic();
             SkySales.Common.Models.Student insertedStudent = new Common.Models.Student()
@@ -35,23 +35,23 @@ namespace SkySales.Web.Services
             return student;
         }
 
-        public Student Delete(int id)
+        public StudentWS Delete(int id)
         {
             StudentLogic studentLogic = new StudentLogic();
-            Student student = new Student();
+            StudentWS student = new StudentWS();
           //  student = studentLogic.Delete(id);
             return student;
         }
 
-        public List<Student> GetAll()
+        public List<StudentWS> GetAll()
         {
             StudentLogic studentLogic = new StudentLogic();
-            List<Student> students = new List<Student>();
+            List<StudentWS> students = new List<StudentWS>();
             List<SkySales.Common.Models.Student> studentsList = new List<SkySales.Common.Models.Student>();
             studentsList = studentLogic.GetAll();
             foreach (SkySales.Common.Models.Student student in studentsList)
             {
-                Student newStudent = new Student();
+                StudentWS newStudent = new StudentWS();
                 newStudent.StudentId = student.StudentId;
                 newStudent.Name = student.Name;
                 newStudent.Surname = student.Surname;
@@ -61,13 +61,13 @@ namespace SkySales.Web.Services
             return students;
         }
 
-        public Student GetById(int id)
+        public StudentWS GetById(int id)
         {
             StudentLogic studentLogic = new StudentLogic();
            
             SkySales.Common.Models.Student student = new Common.Models.Student();
             student = studentLogic.GetById(id);
-            Student newStudent = new Student
+            StudentWS newStudent = new StudentWS
             {
                 StudentId = student.StudentId,
                 Name = student.Name,
@@ -77,7 +77,7 @@ namespace SkySales.Web.Services
             return newStudent;
         }
 
-        public Student Update(Student student)
+        public StudentWS Update(StudentWS student)
         {
             StudentLogic studentLogic = new StudentLogic();
             SkySales.Common.Models.Student insertedStudent = new Common.Models.Student()
