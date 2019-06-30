@@ -18,10 +18,10 @@ namespace SkySales.Presentation.Web.Controllers
         }
         [HttpPost]
 
-        public ActionResult Index(StudentModel model, string Operacion)
+        public ActionResult Index(StudentModel model, string Order)
         {
             ServiceReference.StudentWebServiceClient sc = new ServiceReference.StudentWebServiceClient();
-            if (Operacion == "Add")
+            if (Order == "Add")
             {
                 SkySales.Presentation.Web.ServiceReference.Student student = new SkySales.Presentation.Web.ServiceReference.Student
                 {
@@ -34,7 +34,7 @@ namespace SkySales.Presentation.Web.Controllers
 
             }
 
-            if (Operacion == "Update")
+            if (Order == "Update")
             {
 
                 SkySales.Presentation.Web.ServiceReference.Student student = new SkySales.Presentation.Web.ServiceReference.Student
@@ -48,21 +48,21 @@ namespace SkySales.Presentation.Web.Controllers
 
             }
 
-            if (Operacion == "Delete")
+            if (Order == "Delete")
             {
 
                sc.Delete(model.StudentID);
 
             }
 
-            if (Operacion == "GetByID")
+            if (Order == "GetByID")
             {
 
               SkySales.Presentation.Web.ServiceReference.Student student=  sc.GetById(model.StudentID);
                 
             }
 
-            if (Operacion == "GetAll")
+            if (Order == "GetAll")
             {
 
             }
