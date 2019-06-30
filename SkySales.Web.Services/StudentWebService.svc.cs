@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SkySales.Business.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -17,27 +18,83 @@ namespace SkySales.Web.Services
         //private IStudentBO studentBO = new StudentBO();
         public Student Add(Student student)
         {
-            throw new NotImplementedException();
+            StudentLogic studentLogic = new StudentLogic();
+            SkySales.Common.Models.Student insertedStudent = new Common.Models.Student()
+            {
+                StudentId = student.StudentId,
+                Name = student.Name,
+                Surname = student.Surname,
+                Age = student.Age
+            };
+            insertedStudent = studentLogic.Add(insertedStudent);
+
+            student.StudentId = insertedStudent.StudentId;
+            student.Name = insertedStudent.Name;
+            student.Surname = insertedStudent.Surname;
+            student.Age = insertedStudent.Age;
+            return student;
         }
 
         public Student Delete(int id)
         {
-            throw new NotImplementedException();
+            StudentLogic studentLogic = new StudentLogic();
+            Student student = new Student();
+          //  student = studentLogic.Delete(id);
+            return student;
         }
 
         public List<Student> GetAll()
         {
-            throw new NotImplementedException();
+            StudentLogic studentLogic = new StudentLogic();
+            List<Student> students = new List<Student>();
+            List<SkySales.Common.Models.Student> studentsList = new List<SkySales.Common.Models.Student>();
+            studentsList = studentLogic.GetAll();
+            foreach (SkySales.Common.Models.Student student in studentsList)
+            {
+                Student newStudent = new Student();
+                newStudent.StudentId = student.StudentId;
+                newStudent.Name = student.Name;
+                newStudent.Surname = student.Surname;
+                newStudent.Age = student.Age;
+                students.Add(newStudent);
+            }
+            return students;
         }
 
         public Student GetById(int id)
         {
-            throw new NotImplementedException();
+            StudentLogic studentLogic = new StudentLogic();
+           
+            SkySales.Common.Models.Student student = new Common.Models.Student();
+            student = studentLogic.GetById(id);
+            Student newStudent = new Student
+            {
+                StudentId = student.StudentId,
+                Name = student.Name,
+                Surname = student.Surname,
+                Age = student.Age
+            };
+            return newStudent;
         }
 
         public Student Update(Student student)
         {
-            throw new NotImplementedException();
+            StudentLogic studentLogic = new StudentLogic();
+            SkySales.Common.Models.Student insertedStudent = new Common.Models.Student()
+            {
+                StudentId = student.StudentId,
+                Name = student.Name,
+                Surname = student.Surname,
+                Age = student.Age
+            };
+            insertedStudent = studentLogic.Update(insertedStudent);
+
+            student.StudentId = insertedStudent.StudentId;
+            student.Name = insertedStudent.Name;
+            student.Surname = insertedStudent.Surname;
+            student.Age = insertedStudent.Age;
+           
+            return student;
         }
     }
 }

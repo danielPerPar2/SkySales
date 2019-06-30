@@ -1,0 +1,25 @@
+﻿@model SkySales.Presentation.Web.Models.StudentModel
+
+@{
+
+    Layout = null;
+
+}
+
+@using (Html.BeginForm())
+{
+    <h1>Student Manager</h1>
+   <span>Student ID</span> @Html.EditorFor(x => x.StudentID) <br /><br /><span>Name</span> @Html.EditorFor(x => x.Name) <br /> <br /><span>Surname</span> @Html.EditorFor(x => x.Surname) <br /> <br /><span>Age</span> @Html.EditorFor(x => x.Age) <br /> <br />
+    <input type="submit" value="Add" name="Order" />
+    <input type="submit" value="Update" name="Order" />
+    <input type="submit" value="Delete" name="Order" />
+    <input type="submit" value="GetByID" name="Order" />
+    <input type="submit" value="GetAll" name="Order" />
+    <br /><br />
+    <h2>
+        @Html.Label("Resultado :")
+
+        @Html.DisplayFor(x => x.Name)
+    </h2>
+
+}
