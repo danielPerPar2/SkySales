@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29009.5
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkySales.Web.Services", "SkySales.Web.Services\SkySales.Web.Services.csproj", "{77676CAC-FF39-411B-A5A8-8627D00369FC}"
 EndProject
@@ -11,7 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkySales.Common.Models", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkySales.Infrastructure.Repository", "SkySales.Infrastructure.Repository\SkySales.Infrastructure.Repository.csproj", "{86B13B9D-CE0C-4E2D-83A5-33DB247B9120}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkySalesUnitTests", "SkySalesUnitTests\SkySalesUnitTests.csproj", "{579925C1-AF62-4F11-AAA1-0B12DFDE81DD}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkySales.Presentation.Web", "SkySales.Presentation.Web\SkySales.Presentation.Web.csproj", "{D0652FC2-F33F-4131-A19D-A02918BC4B68}"
+>>>>>>> Issue#1
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +39,17 @@ Global
 		{86B13B9D-CE0C-4E2D-83A5-33DB247B9120}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86B13B9D-CE0C-4E2D-83A5-33DB247B9120}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86B13B9D-CE0C-4E2D-83A5-33DB247B9120}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{579925C1-AF62-4F11-AAA1-0B12DFDE81DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{579925C1-AF62-4F11-AAA1-0B12DFDE81DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{579925C1-AF62-4F11-AAA1-0B12DFDE81DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{579925C1-AF62-4F11-AAA1-0B12DFDE81DD}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{D0652FC2-F33F-4131-A19D-A02918BC4B68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0652FC2-F33F-4131-A19D-A02918BC4B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0652FC2-F33F-4131-A19D-A02918BC4B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0652FC2-F33F-4131-A19D-A02918BC4B68}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> Issue#1
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
