@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkySales.Web.Services", "SkySales.Web.Services\SkySales.Web.Services.csproj", "{77676CAC-FF39-411B-A5A8-8627D00369FC}"
 EndProject
@@ -14,6 +14,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkySalesUnitTests", "SkySalesUnitTests\SkySalesUnitTests.csproj", "{579925C1-AF62-4F11-AAA1-0B12DFDE81DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkySales.Presentation.Web", "SkySales.Presentation.Web\SkySales.Presentation.Web.csproj", "{D0652FC2-F33F-4131-A19D-A02918BC4B68}"
+	ProjectSection(ProjectDependencies) = postProject
+		{77676CAC-FF39-411B-A5A8-8627D00369FC} = {77676CAC-FF39-411B-A5A8-8627D00369FC}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkySales.Presentation.WinForm", "SkySales.Presentation.WinForm\SkySales.Presentation.WinForm.csproj", "{04D91D87-4133-43E9-BE7D-E6687759D4E7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{77676CAC-FF39-411B-A5A8-8627D00369FC} = {77676CAC-FF39-411B-A5A8-8627D00369FC}
 	EndProjectSection
@@ -48,6 +53,10 @@ Global
 		{D0652FC2-F33F-4131-A19D-A02918BC4B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0652FC2-F33F-4131-A19D-A02918BC4B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0652FC2-F33F-4131-A19D-A02918BC4B68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04D91D87-4133-43E9-BE7D-E6687759D4E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04D91D87-4133-43E9-BE7D-E6687759D4E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04D91D87-4133-43E9-BE7D-E6687759D4E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04D91D87-4133-43E9-BE7D-E6687759D4E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

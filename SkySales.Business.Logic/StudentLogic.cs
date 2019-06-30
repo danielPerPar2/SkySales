@@ -14,8 +14,8 @@ namespace SkySales.Business.Logic
 
         public Student Add(Student student)
         {
-           student= studentRepository.Add(student);
-            return student;
+           Student newStudent = studentRepository.Add(student);
+            return newStudent;
         }
 
         public Student Delete(int id)
