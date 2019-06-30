@@ -1,4 +1,6 @@
 ﻿using SkySales.Business.Logic;
+using SkySales.Common.Models;
+using SkySales.Web.Services.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,82 +21,43 @@ namespace SkySales.Web.Services
         public StudentWS Add(StudentWS student)
         {
             StudentLogic studentLogic = new StudentLogic();
-            SkySales.Common.Models.Student insertedStudent = new Common.Models.Student()
-            {
-                StudentId = student.StudentId,
-                Name = student.Name,
-                Surname = student.Surname,
-                Age = student.Age
-            };
-            insertedStudent = studentLogic.Add(insertedStudent);
-
-            student.StudentId = insertedStudent.StudentId;
-            student.Name = insertedStudent.Name;
-            student.Surname = insertedStudent.Surname;
-            student.Age = insertedStudent.Age;
-            return student;
+            Student studentCommonModels = StudentMapper.Map(student);           
+            Student insertedStudent = studentLogic.Add(studentCommonModels);
+            StudentWS studentWS = StudentMapper.Map(insertedStudent);   
+            return studentWS;
         }
 
         public StudentWS Delete(int id)
         {
             StudentLogic studentLogic = new StudentLogic();
-            StudentWS student = new StudentWS();
-          //  student = studentLogic.Delete(id);
-            return student;
+            Student studentCommonModels = studentLogic.Delete(id);
+            StudentWS studentWS = StudentMapper.Map(studentCommonModels);         
+            return studentWS;
         }
 
         public List<StudentWS> GetAll()
         {
-            StudentLogic studentLogic = new StudentLogic();
-            List<StudentWS> students = new List<StudentWS>();
-            List<SkySales.Common.Models.Student> studentsList = new List<SkySales.Common.Models.Student>();
-            studentsList = studentLogic.GetAll();
-            foreach (SkySales.Common.Models.Student student in studentsList)
-            {
-                StudentWS newStudent = new StudentWS();
-                newStudent.StudentId = student.StudentId;
-                newStudent.Name = student.Name;
-                newStudent.Surname = student.Surname;
-                newStudent.Age = student.Age;
-                students.Add(newStudent);
-            }
-            return students;
+            StudentLogic studentLogic = new StudentLogic();         
+            List<Student> studentsList = studentLogic.GetAll();
+            List<StudentWS> studentsWS = StudentMapper.Map(studentsList);
+            return studentsWS;
         }
 
         public StudentWS GetById(int id)
         {
-            StudentLogic studentLogic = new StudentLogic();
-           
-            SkySales.Common.Models.Student student = new Common.Models.Student();
-            student = studentLogic.GetById(id);
-            StudentWS newStudent = new StudentWS
-            {
-                StudentId = student.StudentId,
-                Name = student.Name,
-                Surname = student.Surname,
-                Age = student.Age
-            };
-            return newStudent;
+            StudentLogic studentLogic = new StudentLogic();                     
+            Student student = studentLogic.GetById(id);
+            StudentWS studentWS = StudentMapper.Map(student);
+            return studentWS;
         }
 
         public StudentWS Update(StudentWS student)
         {
             StudentLogic studentLogic = new StudentLogic();
-            SkySales.Common.Models.Student insertedStudent = new Common.Models.Student()
-            {
-                StudentId = student.StudentId,
-                Name = student.Name,
-                Surname = student.Surname,
-                Age = student.Age
-            };
-            insertedStudent = studentLogic.Update(insertedStudent);
-
-            student.StudentId = insertedStudent.StudentId;
-            student.Name = insertedStudent.Name;
-            student.Surname = insertedStudent.Surname;
-            student.Age = insertedStudent.Age;
-           
-            return student;
+            Student studentToInsert = StudentMapper.Map(student);
+            Student insertedStudent = studentLogic.Update(studentToInsert);
+            StudentWS insertedStudentWS = StudentMapper.Map(insertedStudent);                
+            return insertedStudentWS;
         }
     }
 }
