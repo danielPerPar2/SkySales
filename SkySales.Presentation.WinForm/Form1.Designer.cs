@@ -112,7 +112,7 @@
             // 
             this.btnAddStudent.Location = new System.Drawing.Point(64, 176);
             this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(75, 31);
+            this.btnAddStudent.Size = new System.Drawing.Size(81, 52);
             this.btnAddStudent.TabIndex = 8;
             this.btnAddStudent.Text = "Add";
             this.btnAddStudent.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
             // 
             this.btnUpdateStudent.Location = new System.Drawing.Point(386, 176);
             this.btnUpdateStudent.Name = "btnUpdateStudent";
-            this.btnUpdateStudent.Size = new System.Drawing.Size(75, 31);
+            this.btnUpdateStudent.Size = new System.Drawing.Size(77, 52);
             this.btnUpdateStudent.TabIndex = 10;
             this.btnUpdateStudent.Text = "Update";
             this.btnUpdateStudent.UseVisualStyleBackColor = true;
@@ -142,7 +142,7 @@
             // 
             this.btnGetById.Location = new System.Drawing.Point(286, 176);
             this.btnGetById.Name = "btnGetById";
-            this.btnGetById.Size = new System.Drawing.Size(75, 31);
+            this.btnGetById.Size = new System.Drawing.Size(77, 52);
             this.btnGetById.TabIndex = 11;
             this.btnGetById.Text = "Get by Id";
             this.btnGetById.UseVisualStyleBackColor = true;
@@ -152,7 +152,7 @@
             // 
             this.btnDeleteStudent.Location = new System.Drawing.Point(481, 176);
             this.btnDeleteStudent.Name = "btnDeleteStudent";
-            this.btnDeleteStudent.Size = new System.Drawing.Size(75, 31);
+            this.btnDeleteStudent.Size = new System.Drawing.Size(83, 52);
             this.btnDeleteStudent.TabIndex = 12;
             this.btnDeleteStudent.Text = "Delete";
             this.btnDeleteStudent.UseVisualStyleBackColor = true;
@@ -161,10 +161,13 @@
             // listViewStudents
             // 
             this.listViewStudents.Location = new System.Drawing.Point(64, 252);
+            this.listViewStudents.MultiSelect = false;
             this.listViewStudents.Name = "listViewStudents";
             this.listViewStudents.Size = new System.Drawing.Size(570, 167);
             this.listViewStudents.TabIndex = 13;
             this.listViewStudents.UseCompatibleStateImageBehavior = false;
+            this.listViewStudents.View = System.Windows.Forms.View.List;
+            this.listViewStudents.SelectedIndexChanged += new System.EventHandler(this.ListViewStudents_SelectedIndexChanged);
             // 
             // Form1
             // 

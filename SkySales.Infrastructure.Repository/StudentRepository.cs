@@ -61,7 +61,7 @@ namespace SkySales.Infrastructure.Repository
             {
                 var studentList = new List<Student>();
                 connection.Open();//lanza excepciones - en el try catch logariamos el student y la excepción
-                using (var command = new SqlCommand("SELECT * FROM Student", connection))
+                using (var command = new SqlCommand("SELECT * FROM Students", connection))
                 {
                     using (var reader = command.ExecuteReader())
                     {                       
