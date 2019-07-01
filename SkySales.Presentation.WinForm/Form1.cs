@@ -28,7 +28,8 @@ namespace SkySales.Presentation.WinForm
                 Surname = txtStudentSurname.Text,
                 Age = Int32.Parse(txtStudentAge.Text)
             };
-            StudentWS addedStudent = studentWebService.Add(student);          
+            StudentWS addedStudent = studentWebService.Add(student);
+            ShowStudentInTextBoxes(addedStudent);
         }
 
         private void BtnGetAll_Click(object sender, EventArgs e)
