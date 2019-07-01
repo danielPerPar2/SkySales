@@ -112,7 +112,7 @@ namespace SkySales.Infrastructure.Repository
             using (SqlConnection connection = new SqlConnection(@WebConfigurationManager.AppSettings["SQLConection"]))
             {
                 connection.Open();//lanza excepciones - en el try catch logariamos el student y la excepción
-                using (SqlCommand command = new SqlCommand("SELECT * FROM Students WHERE StudentID=@id", connection))
+                using (SqlCommand command = new SqlCommand("SELECT * FROM Student WHERE StudentID=@id", connection))
                 {
                     command.Parameters.AddWithValue("@id", id);
 
