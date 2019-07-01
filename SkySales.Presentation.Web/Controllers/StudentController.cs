@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using SkySales.Presentation.Web.Models;
 
 
@@ -18,53 +20,90 @@ namespace SkySales.Presentation.Web.Controllers
         }
         [HttpPost]
 
-        public ActionResult Index(StudentModel model, string Order)
+        public ActionResult Index(StudentModel model, string order)
         {
             ServiceReference.StudentWebServiceClient sc = new ServiceReference.StudentWebServiceClient();
-            if (Order == "Add")
+            enumCommand command =(enumCommand)Enum.Parse(typeof(enumCommand), order);
+            if (command == enumCommand.Add)
             {
-                SkySales.Presentation.Web.ServiceReference.Student student = new SkySales.Presentation.Web.ServiceReference.Student
+                ServiceReference.Student newStudent;
+                ServiceReference.Student student = new ServiceReference.Student
                 {
                     StudentId = model.StudentID,
                     Name = model.Name,
                     Surname = model.Surname,
                     Age = model.Age
                 };
-                sc.Add(student);
+               newStudent= sc.Add(student);
+                if(newStudent != null)
+                {
+                    model.Resutl = WebConfigurationManager.AppSettings["Add"];
+                }
+                else
+                {
+                    model.Resutl = WebConfigurationManager.AppSettings["Error"];
+                }
 
             }
 
-            if (Order == "Update")
+            if (command == enumCommand.Update)
             {
-
-                SkySales.Presentation.Web.ServiceReference.Student student = new SkySales.Presentation.Web.ServiceReference.Student
+                ServiceReference.Student newStudent;
+                SkySales.Presentation.Web.ServiceReference.Student student = new ServiceReference.Student
                 {
                     StudentId = model.StudentID,
                     Name = model.Name,
                     Surname = model.Surname,
                     Age = model.Age
                 };
-                sc.Update(student);
+              newStudent=  sc.Update(student);
+                if (newStudent != null)
+                {
+                    model.Resutl = WebConfigurationManager.AppSettings["Update"];
+                }
+                else
+                {
+                    model.Resutl = WebConfigurationManager.AppSettings["Error"];
+                }
 
             }
 
-            if (Order == "Delete")
+            if (command == enumCommand.Delete)
             {
-
-               sc.Delete(model.StudentID);
+                ServiceReference.Student student;
+             student=  sc.Delete(model.StudentID);
+                if (student != null)
+                {
+                    model.Resutl = WebConfigurationManager.AppSettings["Delete"];
+                }
+                else
+                {
+                    model.Resutl= WebConfigurationManager.AppSettings["Error"];
+                }
 
             }
 
-            if (Order == "GetByID")
+            if (command == enumCommand.GetById)
             {
 
               SkySales.Presentation.Web.ServiceReference.Student student=  sc.GetById(model.StudentID);
-                
+                if (student != null)
+                {
+                    model.Resutl = WebConfigurationManager.AppSettings["GetById"];
+                    model = student;
+                }
+                else
+                {
+                    model.Resutl = WebConfigurationManager.AppSettings["Error"];
+                }
             }
 
-            if (Order == "GetAll")
+            if (command == enumCommand.GetAll)
             {
-
+                ServiceReference.Student[] students;
+                students = sc.GetAll();
+                ListBox listBox = new ListBox();
+                
             }
 
             return View(model);
