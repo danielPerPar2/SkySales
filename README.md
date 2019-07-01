@@ -1,1 +1,1 @@
-write correct test for readme here
+Cooperative exercise about CRUD operations against SQL Server using WCF
