@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBusinessLogic.cs" />
-    <Compile Include="StudentLogic.cs" />
+    <Compile Include="BusinessLogicInterface\IBusinessLogic.cs" />
+    <Compile Include="BusinessLogicImp\StudentLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
