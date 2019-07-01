@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using SkySales.Business.Logic;
 using SkySales.Common.Models;
-using SkySales.Infrastructure.Repository;
 
 namespace SkySalesUnitTests
 {
     [TestClass]
-    public class StudentRepositoryTests
+    public class StudentLogicTest
     {
-        private IRepository<Student> mockObject;
-       
+        private IBusinessLogic<Student> mockObject;
 
         [TestInitialize]
         public void Setup()
         {
-            var mock = new Mock<IRepository<Student>>();
+            var mock = new Mock<IBusinessLogic<Student>>();
 
-            mock.Setup(x => x.Add(It.IsAny<Student>())).Returns<Student>(x => x);               
+            mock.Setup(x => x.Add(It.IsAny<Student>())).Returns<Student>(x => x);
             mock.Setup(x => x.GetById(It.IsAny<Int32>())).Returns(new Student());
             mock.Setup(x => x.GetAll()).Returns(new List<Student>());
             mock.Setup(x => x.Update(It.IsAny<Student>())).Returns(new Student());
@@ -52,8 +51,7 @@ namespace SkySalesUnitTests
         [TestMethod]
         public void UpdateTest()
         {
-            Student student = new Student(1, "Test", "Test", 10);
-            var result = mockObject.Update(student);
+            var result = mockObject.Update(new Student());
             Assert.IsInstanceOfType(result, typeof(Student));
         }
 
@@ -63,6 +61,5 @@ namespace SkySalesUnitTests
             var result = mockObject.Delete(0);
             Assert.IsInstanceOfType(result, typeof(Student));
         }
-
     }
 }

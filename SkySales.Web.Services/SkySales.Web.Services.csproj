@@ -77,6 +77,8 @@
     </Compile>
     <Compile Include="IStudentWebService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\IMapper.cs" />
+    <Compile Include="Utilities\StudentMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

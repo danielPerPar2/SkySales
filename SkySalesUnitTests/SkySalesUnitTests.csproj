@@ -65,11 +65,17 @@
     <Compile Include="StudentRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentWebServiceTest.cs" />
+    <Compile Include="StudentLogicTest.cs" />
+    <Compile Include="MapperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SkySales.Business.Logic\SkySales.Business.Logic.csproj">
+      <Project>{AD72C49D-156A-4C34-B2B1-BEEB7C68C215}</Project>
+      <Name>SkySales.Business.Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SkySales.Common.Models\SkySales.Common.Models.csproj">
       <Project>{f978808c-22c3-455b-ae92-5ad506540a5e}</Project>
       <Name>SkySales.Common.Models</Name>

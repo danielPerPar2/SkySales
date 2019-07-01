@@ -8,14 +8,14 @@ using SkySales.Infrastructure.Repository;
 
 namespace SkySales.Business.Logic
 {
-    public class StudentLogic
+    public class StudentLogic : IBusinessLogic<Student>
     {
-        StudentRepository studentRepository = new StudentRepository();
+        IRepository<Student> studentRepository = new StudentRepository();
 
         public Student Add(Student student)
         {
-           student= studentRepository.Add(student);
-            return student;
+           Student newStudent = studentRepository.Add(student);
+            return newStudent;
         }
 
         public Student Delete(int id)

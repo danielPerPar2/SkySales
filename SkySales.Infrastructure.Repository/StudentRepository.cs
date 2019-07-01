@@ -18,9 +18,8 @@ namespace SkySales.Infrastructure.Repository
             using (SqlConnection connection = new SqlConnection(@WebConfigurationManager.AppSettings["SQLConection"]))
             {
                 connection.Open();//lanza excepciones - en el try catch logariamos el student y la excepción
-                using (SqlCommand command = new SqlCommand("INSERT INTO Student (StudentID, Name, Surname, Age)VALUES(@id, @name, @surname, @age)", connection))
+                using (SqlCommand command = new SqlCommand("INSERT INTO Students (Name, Surname, Age)VALUES(@name, @surname, @age)", connection))
                 {
-                    command.Parameters.AddWithValue("@id", model.StudentId);
                     command.Parameters.AddWithValue("@name", model.Name);
                     command.Parameters.AddWithValue("@surname", model.Surname);
                     command.Parameters.AddWithValue("@age", model.Age);
@@ -42,7 +41,7 @@ namespace SkySales.Infrastructure.Repository
             {
                 connection.Open();//lanza excepciones - en el try catch logariamos el student y la excepción
                 
-                using (SqlCommand command = new SqlCommand("DELETE FROM Student WHERE StudentID=@id", connection))
+                using (SqlCommand command = new SqlCommand("DELETE FROM Students WHERE StudentID=@id", connection))
                 {
                     command.Parameters.AddWithValue("@id", id);
                     command.ExecuteNonQuery();
@@ -117,7 +116,7 @@ namespace SkySales.Infrastructure.Repository
             using (SqlConnection connection = new SqlConnection(@WebConfigurationManager.AppSettings["SQLConection"]))
             {
                 connection.Open();//lanza excepciones - en el try catch logariamos el student y la excepción
-                using (SqlCommand command = new SqlCommand("UPDATE Student SET  Name=@name, Surname=@surname, Age=@age WHERE StudentID=@id", connection))
+                using (SqlCommand command = new SqlCommand("UPDATE Students SET  Name=@name, Surname=@surname, Age=@age WHERE StudentID=@id", connection))
                 {
                     command.Parameters.AddWithValue("@id",student.StudentId);
                     command.Parameters.AddWithValue("@name", student.Name);

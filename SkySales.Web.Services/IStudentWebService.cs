@@ -13,26 +13,26 @@ namespace SkySales.Web.Services
     public interface IStudentWebService
     {
         [OperationContract]
-        Student Add(Student student);
+        StudentWS Add(StudentWS student);
 
         [OperationContract]
-        Student GetById(int id);
+        StudentWS GetById(int id);
 
         [OperationContract]
-        List<Student> GetAll();
+        List<StudentWS> GetAll();
 
         [OperationContract]
-        Student Update(Student student);
+        StudentWS Update(StudentWS student);
 
         [OperationContract]
-        Student Delete(int id);      
+        StudentWS Delete(int id);      
     }
 
     [DataContract]
-    public class Student
+    public class StudentWS
     {
-        public Student() { }
-        public Student(int id, string name, string surname, int age)
+        public StudentWS() { }
+        public StudentWS(int id, string name, string surname, int age)
         {
             StudentId = id;
             Name = name;
