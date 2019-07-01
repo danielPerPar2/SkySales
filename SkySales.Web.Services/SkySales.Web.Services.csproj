@@ -65,17 +65,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="StudentWebService.svc" />
+    <Content Include="WebServiceImp\StudentWebService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="StudentWebService.svc.cs">
+    <Compile Include="WebServiceImp\StudentWebService.svc.cs">
       <DependentUpon>StudentWebService.svc</DependentUpon>
     </Compile>
-    <Compile Include="IStudentWebService.cs" />
+    <Compile Include="WebServiceInterface\IStudentWebService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\IMapper.cs" />
     <Compile Include="Utilities\StudentMapper.cs" />

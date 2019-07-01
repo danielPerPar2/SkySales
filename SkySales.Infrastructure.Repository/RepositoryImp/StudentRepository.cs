@@ -27,9 +27,34 @@ namespace SkySales.Infrastructure.Repository
                     command.ExecuteNonQuery();
                     //habria que buscar el user insertado y retornarlo
                 }
-              student=  GetById(model.StudentId);
+              student= GetStudentWithMaxId();
             }
             return student;
+        }
+
+        private Student GetStudentWithMaxId()
+        {     
+            using (var connection = new SqlConnection(WebConfigurationManager.AppSettings["SQLConection"]))
+            {
+                var student = new Student();
+                connection.Open();//lanza excepciones - en el try catch logariamos el student y la excepción
+                using (var command = new SqlCommand("SELECT * FROM Students WHERE StudentID = (SELECT MAX(StudentID) FROM Students); ", connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            
+                            student.StudentId = Int32.Parse(reader["StudentID"].ToString());
+                            student.Name = reader["Name"].ToString();
+                            student.Surname = reader["Surname"].ToString();
+                            student.Age = Int32.Parse(reader["Age"].ToString());
+                            
+                        }
+                    }
+                }
+                return student;
+            }
         }
 
         public Student Delete(int id)
@@ -61,7 +86,7 @@ namespace SkySales.Infrastructure.Repository
             {
                 var studentList = new List<Student>();
                 connection.Open();//lanza excepciones - en el try catch logariamos el student y la excepción
-                using (var command = new SqlCommand("SELECT * FROM Student", connection))
+                using (var command = new SqlCommand("SELECT * FROM Students", connection))
                 {
                     using (var reader = command.ExecuteReader())
                     {                       
