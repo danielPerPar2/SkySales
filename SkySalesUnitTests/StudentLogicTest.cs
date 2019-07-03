@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Autofac.Extras.Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using SkySales.Business.Logic;
@@ -11,7 +12,29 @@ namespace SkySalesUnitTests
     public class StudentLogicTest
     {
         private IBusinessLogic<Student> mockObject;
+        private AutoMock mock;
 
+        [TestInitialize]
+        public void Setup()
+        {
+            mock = AutoMock.GetLoose();
+
+            mock.Mock<IBusinessLogic<Student>>().Setup(x => x.Add(It.IsAny<Student>())).Returns<Student>(x => x);
+            mock.Mock<IBusinessLogic<Student>>().Setup(x => x.GetById(It.IsAny<Int32>())).Returns(new Student());
+            mock.Mock<IBusinessLogic<Student>>().Setup(x => x.GetAll()).Returns(new List<Student>());
+            mock.Mock<IBusinessLogic<Student>>().Setup(x => x.Update(It.IsAny<Student>())).Returns(new Student());
+            mock.Mock<IBusinessLogic<Student>>().Setup(x => x.Delete(It.IsAny<Int32>())).Returns(new Student());
+
+            mockObject = mock.Create<IBusinessLogic<Student>>();
+        }
+
+        [TestCleanup]
+        public void CleanUp()
+        {
+            mock.Dispose();
+        }
+        //without Autofac
+        /*
         [TestInitialize]
         public void Setup()
         {
@@ -25,7 +48,7 @@ namespace SkySalesUnitTests
 
             mockObject = mock.Object;
         }
-
+        */
         [TestMethod]
         public void AddTest()
         {

@@ -20,6 +20,14 @@ namespace SkySales.Common.Models
             Surname = surnaName;
             Age = age;
         }
+        public Student(string name, string surname, int age)
+        {
+            StudentId = 0;
+            Name = name;
+            Surname = surname;
+            Age = age;
+        }
+
         [DataMember]
         public int StudentId { get; set; }
         [DataMember]
