@@ -2,6 +2,8 @@
 using SkySales.Business.Logic;
 using SkySales.Common.Models;
 using SkySales.Infrastructure.Repository;
+using SkySales.Web.Services;
+using SkySales.Web.Services.WebServiceImp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,7 @@ namespace SkysalesIntegrationTests.Modules
         {
             builder.RegisterType<StudentLogic>().As<IBusinessLogic<Student>>();
             builder.RegisterType<StudentRepository>().As<IRepository<Student>>();
+            builder.RegisterType<StudentWebService>().As<IStudentWebService>();
         }
     }
 }
