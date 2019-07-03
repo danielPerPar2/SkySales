@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="SkySales.Web.Services.StudentWebService" CodeBehind="StudentWebService.svc.cs" %>

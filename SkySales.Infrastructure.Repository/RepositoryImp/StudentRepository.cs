@@ -11,6 +11,9 @@ namespace SkySales.Infrastructure.Repository
 {
    public class StudentRepository : IRepository<Student>
     {
+        private static readonly log4net.ILog log =
+            log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public Student Add(Student model)
         {
             Student student = new Student();
@@ -81,6 +84,8 @@ namespace SkySales.Infrastructure.Repository
 
         public List<Student> GetAll()
         {
+            log.Debug("Dentro del StudentRepository GetAll()");
+
             //poner cadena de conexión en el Web.config
             using (var connection = new SqlConnection(WebConfigurationManager.AppSettings["SQLConection"]))
             {

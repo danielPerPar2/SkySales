@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SkySales.Common.Models
 {
+    //usamos la misma entidad en la capa de servicios y la capa de common models.
+    //Añadimos los atributos para serializar
+    [DataContract]
     public class Student
     {
         public Student(){}
@@ -16,9 +20,13 @@ namespace SkySales.Common.Models
             Surname = surnaName;
             Age = age;
         }
+        [DataMember]
         public int StudentId { get; set; }
+        [DataMember]
         public string Name { get; set; }
+        [DataMember]
         public string Surname { get; set; }
+        [DataMember]
         public int Age { get; set; }
 
         public override bool Equals(object obj)

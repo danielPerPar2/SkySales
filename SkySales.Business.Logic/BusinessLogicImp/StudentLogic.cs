@@ -10,7 +10,22 @@ namespace SkySales.Business.Logic
 {
     public class StudentLogic : IBusinessLogic<Student>
     {
-        IRepository<Student> studentRepository = new StudentRepository();
+        private static readonly log4net.ILog log =
+            log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        private IRepository<Student> studentRepository;
+
+        public StudentLogic(IRepository<Student> studentRepository)
+        {
+            log.Debug("Dentro de StudentLogic");
+            if(studentRepository == null)
+            {
+                string message = "studentRepository is null";
+                log.Error(message);
+                throw new NullReferenceException(message);
+            }
+            this.studentRepository = studentRepository;
+        }
 
         public Student Add(Student student)
         {

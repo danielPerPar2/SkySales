@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using Autofac;
+using Autofac.Integration.Wcf;
 
 namespace SkySales.Web.Services
 {
@@ -14,6 +16,9 @@ namespace SkySales.Web.Services
         protected void Application_Start(object sender, EventArgs e)
         {
             //lo primero que se ejecuta al arrancar la aplicación
+            IContainer container = AutofacContainerBuilder.BuildContainer();
+            AutofacHostFactory.Container = container;
+
             log.Info("Application_Start");
             log.Debug("Application_Start");
             log.Error("Application_Start");
@@ -42,6 +47,8 @@ namespace SkySales.Web.Services
             //esto se ejecutará para cada exception que se lance en la aplicación
             //podríamos usarlo para tener el control de errores centralizado aquí
             log.Error("Application_Error");
+
+            //logar la Fault Exception y logarla
         }
 
         protected void Session_End(object sender, EventArgs e)
