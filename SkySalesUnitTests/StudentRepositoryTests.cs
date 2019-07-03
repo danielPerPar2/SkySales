@@ -27,6 +27,12 @@ namespace SkySalesUnitTests
 
             mockObject = mock.Create<IRepository<Student>>();          
         }
+
+        [TestCleanup]
+        public void CleanUp()
+        {
+            mock.Dispose();
+        }
       
         //Without autofac       
         /*
@@ -49,24 +55,21 @@ namespace SkySalesUnitTests
         {
             Student student = new Student(1, "Test", "Test", 10);
             var result = mockObject.Add(student);
-            Assert.AreEqual(result, student);
-            mock.Dispose();
+            Assert.AreEqual(result, student);          
         }
 
         [TestMethod]
         public void GetByIdTest()
         {
             var result = mockObject.GetById(0);
-            Assert.IsInstanceOfType(result, typeof(Student));
-            mock.Dispose();
+            Assert.IsInstanceOfType(result, typeof(Student));           
         }
 
         [TestMethod]
         public void GetAllTest()
         {
             var result = mockObject.GetAll();
-            Assert.IsInstanceOfType(result, typeof(List<Student>));
-            mock.Dispose();
+            Assert.IsInstanceOfType(result, typeof(List<Student>));            
         }
 
         [TestMethod]
@@ -74,17 +77,14 @@ namespace SkySalesUnitTests
         {
             Student student = new Student(1, "Test", "Test", 10);
             var result = mockObject.Update(student);
-            Assert.IsInstanceOfType(result, typeof(Student));
-            mock.Dispose();
+            Assert.IsInstanceOfType(result, typeof(Student));           
         }
 
         [TestMethod]
         public void DeleteTest()
         {
             var result = mockObject.Delete(0);
-            Assert.IsInstanceOfType(result, typeof(Student));
-            mock.Dispose();
+            Assert.IsInstanceOfType(result, typeof(Student));            
         }
-
     }
 }
