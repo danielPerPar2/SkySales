@@ -18,7 +18,9 @@ namespace SkysalesIntegrationTests.Modules
         {
             builder.RegisterType<StudentLogic>().As<IBusinessLogic<Student>>();
             builder.RegisterType<StudentRepository>().As<IRepository<Student>>();
-            builder.RegisterType<StudentWebService>().As<IStudentWebService>();
+            
+            //Ojo!! el service no se registra como tipo de interfaz, vamos a usar namespace.clase
+            builder.RegisterType<StudentsServiceReference.StudentWebServiceClient>();
         }
     }
 }

@@ -11,20 +11,21 @@ namespace SkysalesIntegrationTests
     [TestClass]
     public class StudentWebServiceTests : IoCSupportedTest<TestModule>
     {
-        private IStudentWebService studentService;
+        //Ojo!! el service no se registra como tipo de interfaz, vamos a usar namespace.clase
+        private StudentsServiceReference.StudentWebServiceClient studentService;
         private List<Student> testStudents = new List<Student>();
 
         [TestInitialize]
         public void Setup()
         {
-            studentService = Resolve<IStudentWebService>();
+            studentService = Resolve<StudentsServiceReference.StudentWebServiceClient>();          
             testStudents = AddTestStudents();
         }
 
         [TestCleanup]
         public void CleanUp()
         {
-            studentService = null;
+            studentService.Close();
             ShutdownIoC();
         }
 
